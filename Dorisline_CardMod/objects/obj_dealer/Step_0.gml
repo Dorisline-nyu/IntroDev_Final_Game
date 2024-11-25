@@ -13,7 +13,7 @@ switch(global.state)
 				{
 					if(mouse_check_button_pressed(mb_left))
 					{
-						audio_play_sound(sou_game_start, 1, false)
+						audio_play_sound(sou_deal, 1, false)
 						var _dealt_card = ds_list_find_value(substance_deck, ds_list_size(substance_deck) - 1);
 						ds_list_delete(substance_deck, ds_list_size(substance_deck) - 1);
 						ds_list_add(player_hand, _dealt_card);
@@ -53,7 +53,7 @@ switch(global.state)
 		var _computer_num = ds_list_size(computer_hand);
 		if(_computer_num < 3)
 			{
-				audio_play_sound(sou_game_start, 1, false)
+				audio_play_sound(sou_deal, 1, false)
 				var _dealt_card = ds_list_find_value(substance_deck, ds_list_size(substance_deck) - 1);
 				ds_list_delete(substance_deck, ds_list_size(substance_deck) - 1);
 				ds_list_add(computer_hand, _dealt_card);
@@ -227,66 +227,38 @@ switch(global.state)
 				var _hand_card = ds_list_find_value(player_hand, ds_list_size(player_hand) - 1);
 				ds_list_delete(player_hand, ds_list_size(player_hand) - 1);
 				ds_list_add(substance_discard, _hand_card);
-				ds_list_add(substance_discard, player_selected);
-				//_hand_card.target_x = room_width * 0.8;
-				//_hand_card.target_y = y - ds_list_size(substance_discard);
+				//ds_list_add(substance_discard, player_selected);
 				_hand_card.in_deck = false;
 				_hand_card.in_player_hand = false;
 				_hand_card.face_up = false;
 				player_choice = 0;
 				
-				
-				for(var _i = 0; _i < ds_list_size(substance_discard); _i++)
-				{
-					substance_discard[| _i].depth = num_substance_cards - _i;
-					substance_discard[| _i].target_x = room_width* 0.8;
-					substance_discard[| _i].target_y = y - ds_list_size(substance_discard);
-					substance_discard[| _i].target_y = y - (2 * _i);
-				}
 				if(_computer_hand_num > 0)
 				{
 
 					var _computer_hand_card = ds_list_find_value(computer_hand, ds_list_size(computer_hand) - 1);
 					ds_list_delete(computer_hand, ds_list_size(computer_hand) - 1);
 					ds_list_add(substance_discard, _computer_hand_card);
-					//_computer_hand_card.target_x = room_width * 0.8;
-					//_computer_hand_card.target_y = y - ds_list_size(substance_discard);
 					_computer_hand_card.in_deck = false;
 					_computer_hand_card.in_computer_hand = false;
 					_computer_hand_card.face_up = false;
 				
-				
-					for(var _i = 0; _i < ds_list_size(substance_discard); _i++)
-					{
-						substance_discard[| _i].depth = num_substance_cards - _i;
-						substance_discard[| _i].target_x = room_width* 0.8;
-						substance_discard[| _i].target_y = y - ds_list_size(substance_discard);
-						substance_discard[| _i].target_y = y - (2 * _i);
-					}
-				
 				}
-			/*
-			if(_computer_hand_num > 0)
-			{
 
-				var _computer_hand_card = ds_list_find_value(computer_hand, ds_list_size(computer_hand) - 1);
-				ds_list_delete(computer_hand, ds_list_size(computer_hand) - 1);
-				ds_list_add(substance_discard, _computer_hand_card);
-				_computer_hand_card.target_x = room_width * 0.8;
-				_computer_hand_card.target_y = y - ds_list_size(substance_discard);
-				_computer_hand_card.in_deck = false;
-				_computer_hand_card.in_computer_hand = false;
-				
-				
-				for(var _i = 0; _i < ds_list_size(substance_discard); _i++)
-				{
-					substance_discard[| _i].depth = num_substance_cards - _i;
-					substance_discard[| _i].target_y = y - (2 * _i);
-				}
-			*/
 			}
 			else
 			{
+			for(var _i = 0; _i < ds_list_size(substance_discard); _i++)
+				{
+					
+					show_debug_message(_i);
+					show_debug_message(ds_list_size(substance_discard) - _i);
+					show_debug_message(y - (2 * _i));
+					substance_discard[| _i].depth = ds_list_size(substance_discard) - _i;
+					substance_discard[| _i].target_x = room_width * 0.8;
+					substance_discard[| _i].target_y = y - (2 * _i);
+				}
+			
 				ds_list_clear(player_selected);
 				ds_list_clear(computer_selected);
 				if(ds_list_size(substance_deck) == 0)
@@ -437,9 +409,8 @@ switch(global.state)
 		
 		for(var _i = 0; _i < ds_list_size(substance_deck); _i++)
 		{
-			substance_deck[| _i].depth = num_substance_cards - _i;
+			substance_deck[| _i].depth = ds_list_size(substance_deck) - _i;
 			substance_deck[| _i].target_x = 400;
-			
 			substance_deck[| _i].target_y = y - (2 * _i);
 		}
 		

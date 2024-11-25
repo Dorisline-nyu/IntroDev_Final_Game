@@ -43,6 +43,7 @@ move_timer = 0;
 player_conscious = 10;
 computer_conscious = 10;
 max_consciousness = 10;
+audio_play_sound(sou_background, 0, true);
 
 for (var _i = 0; _i < num_substance_cards; _i++)
 {
