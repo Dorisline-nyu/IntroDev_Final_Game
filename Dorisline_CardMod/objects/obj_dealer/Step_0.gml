@@ -18,7 +18,7 @@ switch(global.state)
 						ds_list_delete(substance_deck, ds_list_size(substance_deck) - 1);
 						ds_list_add(player_hand, _dealt_card);
 						_dealt_card.target_x = room_width/3 + _player_num * hand_x_offset;
-						_dealt_card.target_y = room_height * 0.5;
+						_dealt_card.target_y = room_height * 0.8;
 						_dealt_card.in_player_hand = true;
 						//player_has_substance_card = true;
 						player_choice++;
@@ -227,7 +227,7 @@ switch(global.state)
 				var _hand_card = ds_list_find_value(player_hand, ds_list_size(player_hand) - 1);
 				ds_list_delete(player_hand, ds_list_size(player_hand) - 1);
 				ds_list_add(substance_discard, _hand_card);
-				//ds_list_add(substance_discard, player_selected);
+				//ds_list_add(substance_discard, player_selected); I'M SO DUMB
 				_hand_card.in_deck = false;
 				_hand_card.in_player_hand = false;
 				_hand_card.face_up = false;

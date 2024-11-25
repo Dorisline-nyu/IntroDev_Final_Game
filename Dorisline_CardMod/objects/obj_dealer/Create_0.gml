@@ -86,4 +86,3 @@ for(var _i = 0; _i < num_food_cards; _i++)
 	food_deck[| _i].depth = num_food_cards - _i;
 	food_deck[| _i].target_y = y - (2 * _i);
 }
-*/
