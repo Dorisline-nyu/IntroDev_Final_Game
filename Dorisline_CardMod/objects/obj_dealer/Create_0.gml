@@ -40,9 +40,9 @@ substance_discard = ds_list_create();
 //timer
 move_timer = 0;
 //scores
-player_conscious = 5;
-computer_conscious = 5;
-max_consciousness = 5;
+player_conscious = 10;
+computer_conscious = 10;
+max_consciousness = 10;
 
 for (var _i = 0; _i < num_substance_cards; _i++)
 {

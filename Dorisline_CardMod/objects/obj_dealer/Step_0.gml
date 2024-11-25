@@ -58,7 +58,7 @@ switch(global.state)
 				ds_list_delete(substance_deck, ds_list_size(substance_deck) - 1);
 				ds_list_add(computer_hand, _dealt_card);
 				_dealt_card.target_x = room_width/3 + _computer_num * hand_x_offset;
-				_dealt_card.target_y = room_height * 0.1;
+				_dealt_card.target_y = room_height * 0.05;
 				_dealt_card.in_computer_hand = true;
 				_dealt_card.face_up = false;
 			}
@@ -228,18 +228,44 @@ switch(global.state)
 				ds_list_delete(player_hand, ds_list_size(player_hand) - 1);
 				ds_list_add(substance_discard, _hand_card);
 				ds_list_add(substance_discard, player_selected);
-				_hand_card.target_x = room_width * 0.8;
-				_hand_card.target_y = y - ds_list_size(substance_discard);
+				//_hand_card.target_x = room_width * 0.8;
+				//_hand_card.target_y = y - ds_list_size(substance_discard);
 				_hand_card.in_deck = false;
 				_hand_card.in_player_hand = false;
+				_hand_card.face_up = false;
 				player_choice = 0;
+				
 				
 				for(var _i = 0; _i < ds_list_size(substance_discard); _i++)
 				{
 					substance_discard[| _i].depth = num_substance_cards - _i;
+					substance_discard[| _i].target_x = room_width* 0.8;
+					substance_discard[| _i].target_y = y - ds_list_size(substance_discard);
 					substance_discard[| _i].target_y = y - (2 * _i);
 				}
-			}
+				if(_computer_hand_num > 0)
+				{
+
+					var _computer_hand_card = ds_list_find_value(computer_hand, ds_list_size(computer_hand) - 1);
+					ds_list_delete(computer_hand, ds_list_size(computer_hand) - 1);
+					ds_list_add(substance_discard, _computer_hand_card);
+					//_computer_hand_card.target_x = room_width * 0.8;
+					//_computer_hand_card.target_y = y - ds_list_size(substance_discard);
+					_computer_hand_card.in_deck = false;
+					_computer_hand_card.in_computer_hand = false;
+					_computer_hand_card.face_up = false;
+				
+				
+					for(var _i = 0; _i < ds_list_size(substance_discard); _i++)
+					{
+						substance_discard[| _i].depth = num_substance_cards - _i;
+						substance_discard[| _i].target_x = room_width* 0.8;
+						substance_discard[| _i].target_y = y - ds_list_size(substance_discard);
+						substance_discard[| _i].target_y = y - (2 * _i);
+					}
+				
+				}
+			/*
 			if(_computer_hand_num > 0)
 			{
 
@@ -251,11 +277,13 @@ switch(global.state)
 				_computer_hand_card.in_deck = false;
 				_computer_hand_card.in_computer_hand = false;
 				
+				
 				for(var _i = 0; _i < ds_list_size(substance_discard); _i++)
 				{
 					substance_discard[| _i].depth = num_substance_cards - _i;
 					substance_discard[| _i].target_y = y - (2 * _i);
 				}
+			*/
 			}
 			else
 			{
@@ -396,21 +424,25 @@ switch(global.state)
 			var _reshuffle_card = ds_list_find_value(substance_discard, ds_list_size(substance_discard) - 1)
 			ds_list_delete(substance_discard, ds_list_size(substance_discard) - 1);
 			ds_list_add(substance_deck, _reshuffle_card);
-			_reshuffle_card.target_x = 400;
-			_reshuffle_card.target_y = y;
+			//_reshuffle_card.target_x = 400;
+			//_reshuffle_card.target_y = y;
 		}
 		else
 		{
 			global.state = STATES.DEAL;
 		}
+		
 		randomize();
 		ds_list_shuffle(substance_deck)
 		
 		for(var _i = 0; _i < ds_list_size(substance_deck); _i++)
 		{
 			substance_deck[| _i].depth = num_substance_cards - _i;
+			substance_deck[| _i].target_x = 400;
+			
 			substance_deck[| _i].target_y = y - (2 * _i);
 		}
+		
 			
 	break;
 	
