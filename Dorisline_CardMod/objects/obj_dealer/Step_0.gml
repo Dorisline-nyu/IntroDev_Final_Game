@@ -46,10 +46,11 @@ switch(global.state)
 			{
 				global.state = STATES.COMPUTER;
 			}
-		
 	break;
 	
 	case STATES.COMPUTER:
+		if(move_timer == 0)
+		{
 		var _computer_num = ds_list_size(computer_hand);
 		if(_computer_num < 3)
 			{
@@ -113,6 +114,7 @@ switch(global.state)
 				global.state = STATES.CHOOSE;
 			}
 			*/
+		}
 	break;
 	
 	case STATES.CHOOSE:
@@ -219,6 +221,9 @@ switch(global.state)
 	break;
 	
 	case STATES.RESOLVE:
+		if(move_timer == 0)
+		{
+			
 		var _hand_num = ds_list_size(player_hand);
 		var _computer_hand_num = ds_list_size(computer_hand);
 			if(_hand_num > 0)
@@ -387,9 +392,12 @@ switch(global.state)
 			}
 			*/
 		//}
+		}
 	break;
 	
 	case STATES.RESHUFFLE:
+		//if(move_timer == 0)
+		//{
 		var _reshuffle_num = ds_list_size(substance_discard)
 		if(_reshuffle_num > 0)
 		{
@@ -414,7 +422,7 @@ switch(global.state)
 			substance_deck[| _i].target_y = y - (2 * _i);
 		}
 		
-			
+		//}
 	break;
 	
 }
