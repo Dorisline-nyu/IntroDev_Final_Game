@@ -20,7 +20,7 @@
     {"id":{"name":"sou_banana","path":"sounds/sou_banana/sou_banana.yy",},"order":1,},
     {"id":{"name":"obj_dealer","path":"objects/obj_dealer/obj_dealer.yy",},"order":0,},
     {"id":{"name":"obj_win","path":"objects/obj_win/obj_win.yy",},"order":4,},
-    {"id":{"name":"roo_start","path":"rooms/roo_start/roo_start.yy",},"order":3,},
+    {"id":{"name":"roo_menu","path":"rooms/roo_menu/roo_menu.yy",},"order":3,},
     {"id":{"name":"spr_chocolate","path":"sprites/spr_chocolate/spr_chocolate.yy",},"order":4,},
     {"id":{"name":"sou_drink","path":"sounds/sou_drink/sou_drink.yy",},"order":2,},
     {"id":{"name":"spr_cig","path":"sprites/spr_cig/spr_cig.yy",},"order":2,},
@@ -50,7 +50,7 @@
     {"roomId":{"name":"RUSH","path":"rooms/RUSH/RUSH.yy",},},
     {"roomId":{"name":"roo_lose","path":"rooms/roo_lose/roo_lose.yy",},},
     {"roomId":{"name":"roo_win","path":"rooms/roo_win/roo_win.yy",},},
-    {"roomId":{"name":"roo_start","path":"rooms/roo_start/roo_start.yy",},},
+    {"roomId":{"name":"roo_menu","path":"rooms/roo_menu/roo_menu.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},

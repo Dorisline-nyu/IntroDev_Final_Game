@@ -118,12 +118,18 @@ switch(global.state)
 	break;
 	
 	case STATES.CHOOSE:
-		
+
 		if(ds_list_size(player_selected) == 1)
 		{
-			//show_message(_computer_selected_card.face_index)
 			_computer_selected_card.face_up = true;
-			global.state = STATES.DRINK;
+			//show_message("hi")
+			wait_timer++;
+			if(wait_timer >= 50)
+			{
+				//show_message(_computer_selected_card.face_index)
+				global.state = STATES.DRINK;
+				wait_timer = 0;
+			}
 		}
 	break;
 	
@@ -224,57 +230,53 @@ switch(global.state)
 		if(move_timer == 0)
 		{
 			
-		var _hand_num = ds_list_size(player_hand);
-		var _computer_hand_num = ds_list_size(computer_hand);
-			if(_hand_num > 0)
-			{
-				
-				var _hand_card = ds_list_find_value(player_hand, ds_list_size(player_hand) - 1);
-				ds_list_delete(player_hand, ds_list_size(player_hand) - 1);
-				ds_list_add(substance_discard, _hand_card);
-				//ds_list_add(substance_discard, player_selected); I'M SO DUMB
-				_hand_card.in_deck = false;
-				_hand_card.in_player_hand = false;
-				_hand_card.face_up = false;
-				player_choice = 0;
-				
-				if(_computer_hand_num > 0)
+			var _hand_num = ds_list_size(player_hand);
+			var _computer_hand_num = ds_list_size(computer_hand);
+				if(_hand_num > 0)
 				{
+				
+					var _hand_card = ds_list_find_value(player_hand, ds_list_size(player_hand) - 1);
+					ds_list_delete(player_hand, ds_list_size(player_hand) - 1);
+					ds_list_add(substance_discard, _hand_card);
+					//ds_list_add(substance_discard, player_selected); I'M SO DUMB
+					_hand_card.in_deck = false;
+					_hand_card.in_player_hand = false;
+					_hand_card.face_up = false;
+					player_choice = 0;
+				
+					if(_computer_hand_num > 0)
+					{
 
-					var _computer_hand_card = ds_list_find_value(computer_hand, ds_list_size(computer_hand) - 1);
-					ds_list_delete(computer_hand, ds_list_size(computer_hand) - 1);
-					ds_list_add(substance_discard, _computer_hand_card);
-					_computer_hand_card.in_deck = false;
-					_computer_hand_card.in_computer_hand = false;
-					_computer_hand_card.face_up = false;
+						var _computer_hand_card = ds_list_find_value(computer_hand, ds_list_size(computer_hand) - 1);
+						ds_list_delete(computer_hand, ds_list_size(computer_hand) - 1);
+						ds_list_add(substance_discard, _computer_hand_card);
+						_computer_hand_card.in_deck = false;
+						_computer_hand_card.in_computer_hand = false;
+						_computer_hand_card.face_up = false;
 				
-				}
+					}
 
-			}
-			else
-			{
-			for(var _i = 0; _i < ds_list_size(substance_discard); _i++)
-				{
-					
-					show_debug_message(_i);
-					show_debug_message(ds_list_size(substance_discard) - _i);
-					show_debug_message(y - (2 * _i));
-					substance_discard[| _i].depth = ds_list_size(substance_discard) - _i;
-					substance_discard[| _i].target_x = room_width * 0.8;
-					substance_discard[| _i].target_y = y - (2 * _i);
-				}
-			
-				ds_list_clear(player_selected);
-				ds_list_clear(computer_selected);
-				if(ds_list_size(substance_deck) == 0)
-				{
-					global.state = STATES.RESHUFFLE;
 				}
 				else
 				{
+				for(var _i = 0; _i < ds_list_size(substance_discard); _i++)
+					{
+						substance_discard[| _i].depth = ds_list_size(substance_discard) - _i;
+						substance_discard[| _i].target_x = room_width * 0.8;
+						substance_discard[| _i].target_y = y - (2 * _i);
+					}
+			
+					ds_list_clear(player_selected);
+					ds_list_clear(computer_selected);
+					if(ds_list_size(substance_deck) == 0)
+					{
+						global.state = STATES.RESHUFFLE;
+					}
+					else
+					{
 					
-					global.state = STATES.DEAL;
-				}
+						global.state = STATES.DEAL;
+					}
 			}
 	/*
 		var _hand_num = ds_list_size(player_hand);

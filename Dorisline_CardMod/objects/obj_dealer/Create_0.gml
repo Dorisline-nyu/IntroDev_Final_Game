@@ -19,8 +19,15 @@ hand_x_offset = 100;
 num_substance_cards = 30;
 //num_food_cards = 15;
 
+//deck
 //food_deck = ds_list_create();
 substance_deck = ds_list_create();
+
+//deck distribution
+beer_quantity = 15;
+double_beer_quantity = 10;
+banana_quantity = 5;
+
 //player
 player_hand = ds_list_create();
 player_selected = ds_list_create();
@@ -28,17 +35,20 @@ player_choice = 0;
 //player_has_food_card = false;
 //player_has_substance_card = false;
 //player_selected_card = ds_list_create();
+
 //computer
 computer_hand = ds_list_create();
 computer_selected = ds_list_create();
 computer_choice = 0;
 //computer_has_food_card = false;
 //computer_has_substance_card = false;
+
 //discard
 //food_discard = ds_list_create();
 substance_discard = ds_list_create();
 //timer
 move_timer = 0;
+wait_timer = 0;
 //scores
 player_conscious = 10;
 computer_conscious = 10;
@@ -48,13 +58,26 @@ audio_play_sound(sou_background, 0, true);
 for (var _i = 0; _i < num_substance_cards; _i++)
 {
 	var _new_substance_card = instance_create_layer(x, y, "Cards", obj_substance_card);
-	_new_substance_card.substance_face_index = _i % 3;
+	//_new_substance_card.substance_face_index = _i % 3;
 	_new_substance_card.face_up = false;
 	_new_substance_card.in_player_hand = false;
 	_new_substance_card.in_computer_hand = false;
 	_new_substance_card.target_x = 400;
 	_new_substance_card.target_y = y;
 	ds_list_add(substance_deck, _new_substance_card);
+	
+	if(_i < beer_quantity)
+	{
+		_new_substance_card.substance_face_index = 0;
+	}
+	else if(_i < double_beer_quantity + beer_quantity)
+	{
+		_new_substance_card.substance_face_index = 1;
+	}
+	else 
+	{
+		_new_substance_card.substance_face_index = 2;
+	}
 	
 }
 randomize();
