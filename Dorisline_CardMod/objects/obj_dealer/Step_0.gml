@@ -69,7 +69,7 @@ switch(global.state)
 				//make the comupter selected card move up
 				_computer_selected_card = ds_list_find_value(computer_hand, choose(0, 1, 2));
 				_computer_selected_card.target_x = 365;
-				_computer_selected_card.target_y = 175;
+				_computer_selected_card.target_y = 180;
 				ds_list_add(computer_selected, _computer_selected_card);
 				ds_list_delete(computer_hand, _computer_selected_card);
 				//dealing is false

@@ -62,7 +62,7 @@ for (var _i = 0; _i < num_substance_cards; _i++)
 	_new_substance_card.face_up = false;
 	_new_substance_card.in_player_hand = false;
 	_new_substance_card.in_computer_hand = false;
-	_new_substance_card.target_x = 400;
+	_new_substance_card.target_x = 200;
 	_new_substance_card.target_y = y;
 	ds_list_add(substance_deck, _new_substance_card);
 	
