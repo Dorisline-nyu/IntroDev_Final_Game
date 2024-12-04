@@ -262,7 +262,7 @@ switch(global.state)
 				for(var _i = 0; _i < ds_list_size(substance_discard); _i++)
 					{
 						substance_discard[| _i].depth = ds_list_size(substance_discard) - _i;
-						substance_discard[| _i].target_x = room_width * 0.8;
+						substance_discard[| _i].target_x = room_width * 0.65;
 						substance_discard[| _i].target_y = y - (2 * _i);
 					}
 			
@@ -420,7 +420,7 @@ switch(global.state)
 		for(var _i = 0; _i < ds_list_size(substance_deck); _i++)
 		{
 			substance_deck[| _i].depth = ds_list_size(substance_deck) - _i;
-			substance_deck[| _i].target_x = 400;
+			substance_deck[| _i].target_x = 200;
 			substance_deck[| _i].target_y = y - (2 * _i);
 		}
 		

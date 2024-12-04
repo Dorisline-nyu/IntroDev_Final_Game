@@ -10,6 +10,7 @@
     {"id":{"name":"sou_background","path":"sounds/sou_background/sou_background.yy",},"order":3,},
     {"id":{"name":"sou_lose","path":"sounds/sou_lose/sou_lose.yy",},"order":5,},
     {"id":{"name":"spr_bread","path":"sprites/spr_bread/spr_bread.yy",},"order":3,},
+    {"id":{"name":"spr_pong_table","path":"sprites/spr_pong_table/spr_pong_table.yy",},"order":9,},
     {"id":{"name":"spr_double_beer","path":"sprites/spr_double_beer/spr_double_beer.yy",},"order":1,},
     {"id":{"name":"spr_substance_back","path":"sprites/spr_substance_back/spr_substance_back.yy",},"order":6,},
     {"id":{"name":"fon_score","path":"fonts/fon_score/fon_score.yy",},"order":0,},
@@ -76,6 +77,6 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.0.3.83",
+    "IDEVersion": "2022.0.3.85",
   },
 }
