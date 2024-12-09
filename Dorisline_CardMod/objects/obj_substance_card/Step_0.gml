@@ -17,6 +17,8 @@ switch(global.state)
 			{
 				//move card/hover?
 				target_y = room_height * 0.75;
+				//make card glow
+				image_index = 1;
 				
 				if(mouse_check_button_pressed(mb_left))
 				{
@@ -34,6 +36,8 @@ switch(global.state)
 			{
 				//move card back
 				target_y = room_height * 0.8;
+				
+				image_index = 0;
 			}
 		}
 	case STATES.RESOLVE:

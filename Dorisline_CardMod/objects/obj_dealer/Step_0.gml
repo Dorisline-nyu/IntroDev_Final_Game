@@ -403,6 +403,7 @@ switch(global.state)
 		var _reshuffle_num = ds_list_size(substance_discard)
 		if(_reshuffle_num > 0)
 		{
+			audio_play_sound(sou_deal, 1, false)
 			var _reshuffle_card = ds_list_find_value(substance_discard, ds_list_size(substance_discard) - 1)
 			ds_list_delete(substance_discard, ds_list_size(substance_discard) - 1);
 			ds_list_add(substance_deck, _reshuffle_card);
