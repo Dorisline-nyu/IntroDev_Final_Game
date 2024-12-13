@@ -137,15 +137,11 @@ switch(global.state)
 		//show_message(player_selected.food_face_index)
 		//var _player_selected_substance = ds_list_find_value(player_selected, 0)
 		//var _player_selected_food = ds_list_value(player_selected
-		
-		var _sequence_neg = seq_health_neg;
-		var _sequence_pos = seq_health_pos;
-		var _sequence_double = seq_health_double;
 		var _layername = "Sequence";
 		if(ds_list_find_value(player_selected, 0) == 0)
 		{
 			audio_play_sound(sou_drink, 1, false)
-			layer_sequence_create(_layername, 600,575, _sequence_neg)
+			layer_sequence_create(_layername, 600,575, seq_health_neg)
 			//player health -1
 			player_conscious -= 1;
 			if(player_conscious < 1)
@@ -157,7 +153,7 @@ switch(global.state)
 		if(ds_list_find_value(player_selected, 0) == 1)
 		{
 			audio_play_sound(sou_drink, 1, false)
-			layer_sequence_create(_layername, 600,575, _sequence_double)
+			layer_sequence_create(_layername, 600,575, seq_health_double)
 			//player health -2
 			player_conscious -= 2;
 			if(player_conscious < 1)
@@ -168,7 +164,7 @@ switch(global.state)
 		if(ds_list_find_value(player_selected, 0) == 2)
 		{
 			audio_play_sound(sou_banana, 1, false)
-			layer_sequence_create(_layername, 600,575, _sequence_pos)
+			layer_sequence_create(_layername, 600,575, seq_health_pos)
 			player_conscious += 1;
 			if(player_conscious > max_consciousness)
 			{
@@ -177,7 +173,8 @@ switch(global.state)
 		}
 		if(_computer_selected_card.substance_face_index == 0)
 		{
-			audio_play_sound(sou_drink, 1, false)
+			//audio_play_sound(sou_drink, 1, false)
+			layer_sequence_create(_layername, 175,125, seq_comp_neg)
 			computer_conscious -= 1;
 			if(computer_conscious < 1)
 			{
@@ -186,7 +183,8 @@ switch(global.state)
 		}
 		if(_computer_selected_card.substance_face_index == 1)
 		{
-			audio_play_sound(sou_drink, 1, false)
+			//audio_play_sound(sou_drink, 1, false)
+			layer_sequence_create(_layername, 175,125, seq_comp_double)
 			computer_conscious -= 2;
 			if(computer_conscious < 1)
 			{
@@ -195,7 +193,8 @@ switch(global.state)
 		}
 		if(_computer_selected_card.substance_face_index == 2)
 		{
-			audio_play_sound(sou_banana, 1, false)
+			//audio_play_sound(sou_banana, 1, false)
+			layer_sequence_create(_layername, 175,125, seq_comp_pos)
 			computer_conscious += 1;
 			if(computer_conscious > max_consciousness)
 			{
