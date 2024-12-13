@@ -3,9 +3,11 @@
   "resourceVersion": "1.6",
   "name": "Dorisline_CardMod",
   "resources": [
+    {"id":{"name":"seq_cards","path":"sequences/seq_cards/seq_cards.yy",},"order":1,},
     {"id":{"name":"spr_button_beer","path":"sprites/spr_button_beer/spr_button_beer.yy",},"order":10,},
     {"id":{"name":"spr_food_back","path":"sprites/spr_food_back/spr_food_back.yy",},"order":7,},
     {"id":{"name":"spr_button_ban","path":"sprites/spr_button_ban/spr_button_ban.yy",},"order":14,},
+    {"id":{"name":"seq_rush","path":"sequences/seq_rush/seq_rush.yy",},"order":0,},
     {"id":{"name":"obj_food_card","path":"objects/obj_food_card/obj_food_card.yy",},"order":1,},
     {"id":{"name":"spr_banana","path":"sprites/spr_banana/spr_banana.yy",},"order":5,},
     {"id":{"name":"obj_tut","path":"objects/obj_tut/obj_tut.yy",},"order":8,},
@@ -64,10 +66,10 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"roo_menu","path":"rooms/roo_menu/roo_menu.yy",},},
+    {"roomId":{"name":"roo_tut","path":"rooms/roo_tut/roo_tut.yy",},},
     {"roomId":{"name":"roo_rush","path":"rooms/roo_rush/roo_rush.yy",},},
     {"roomId":{"name":"roo_win","path":"rooms/roo_win/roo_win.yy",},},
     {"roomId":{"name":"roo_lose","path":"rooms/roo_lose/roo_lose.yy",},},
-    {"roomId":{"name":"roo_tut","path":"rooms/roo_tut/roo_tut.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},
