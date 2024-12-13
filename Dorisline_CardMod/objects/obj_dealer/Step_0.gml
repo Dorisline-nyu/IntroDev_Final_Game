@@ -236,7 +236,6 @@ switch(global.state)
 	case STATES.RESOLVE:
 		if(move_timer == 0)
 		{
-			
 			var _hand_num = ds_list_size(player_hand);
 			var _computer_hand_num = ds_list_size(computer_hand);
 				if(_hand_num > 0)
